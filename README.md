@@ -20,6 +20,7 @@
 
 3. Run terraform:
 
+    # only run this line once
     terraform init
 
     terraform apply
