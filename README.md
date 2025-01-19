@@ -32,10 +32,11 @@
     curl -X POST -H "Content-Type: application/json" -d '{"id": 1, "score": 100}' http://<EC2.IP.ADDRESS.HERE>:8081/item
     curl -X GET http://<EC2.IP.ADDRESS.HERE>/item/1
 
-### 5. To apply any changes to the server, run the following and go back to Step 1:
-    // If you changed server code    
+### 5. To apply any changes:
+    // If you changed server code
     terraform destroy
-    
+    // And go back to step 1.
+
     // Else if changed Infrastructure
     terraform apply
 
