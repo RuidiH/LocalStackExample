@@ -1,4 +1,5 @@
 ### 0.  Setup aws profile configuration, will need access & secret key:
+    // You might need AWS CLI installed
     // Default profile name is 'terraform'
     aws configure --profile terraform 
     // Enter Access Key ID, Secret Key ID, Region(us-west-2), json
@@ -20,7 +21,7 @@
 
 ### 3. Run terraform:
 
-    # only run this line once
+    // only run this line once
     terraform init
 
     terraform apply
@@ -32,11 +33,18 @@
     curl -X GET http://<EC2.IP.ADDRESS.HERE>/item/1
 
 ### 5. To apply any changes to the server, run the following and go back to Step 1:
-
+    // If you changed server code    
     terraform destroy
+    
+    // Else if changed Infrastructure
+    terraform apply
 
-    # When there's only a single instance, manually sending over binary using CLI is faster.
+    // When there's only a single instance, manually sending over binary using CLI is faster.
+
+### 6. When you are done, you might want to:
+    
+    terraform destroy
 
 #### Notes:
 
-init-script.sh needs to be in LE instead of CRLF.
+init-script.sh needs to be in LF instead of CRLF.
