@@ -6,6 +6,7 @@ terraform.tfstate.backup
 
 # AWS credentials and private keys
 *.pem
+*.pub
 
 # Terraform variables with sensitive information
 *.tfvars

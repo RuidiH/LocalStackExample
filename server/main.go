@@ -27,7 +27,7 @@ const tableName = "demo_table"
 func main() {
 	// Load AWS configuration
 	cfg, err := config.LoadDefaultConfig(context.TODO(),
-		config.WithRegion("us-west-1"),
+		config.WithRegion("us-west-2"),
 		// config.WithBaseEndpoint("http://localhost:4566"),
 	)
 	if err != nil {
@@ -35,7 +35,7 @@ func main() {
 	}
 
 	dynamoClient = dynamodb.NewFromConfig(cfg, func(o *dynamodb.Options) {
-		o.Region = "us-west-1"
+		o.Region = "us-west-2"
 		// o.BaseEndpoint = aws.String("http://localhost:4566")
 	})
 
