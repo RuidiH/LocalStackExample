@@ -1,1 +1,13 @@
+# Terraform state files
+terraform.tfstate
+terraform.tfstate.backup
 .terraform/
+
+# AWS credentials and private keys
+*.pem
+
+# Terraform variables with sensitive information
+*.tfvars
+
+# Go Binary
+go-server

@@ -28,7 +28,7 @@ func main() {
 	// Load AWS configuration
 	cfg, err := config.LoadDefaultConfig(context.TODO(),
 		config.WithRegion("us-west-1"),
-		config.WithBaseEndpoint("http://localhost:4566"),
+		// config.WithBaseEndpoint("http://localhost:4566"),
 	)
 	if err != nil {
 		log.Fatalf("unable to load SDK config, %v", err)
@@ -36,7 +36,7 @@ func main() {
 
 	dynamoClient = dynamodb.NewFromConfig(cfg, func(o *dynamodb.Options) {
 		o.Region = "us-west-1"
-		o.BaseEndpoint = aws.String("http://localhost:4566")
+		// o.BaseEndpoint = aws.String("http://localhost:4566")
 	})
 
 	// Setup HTTP Router
