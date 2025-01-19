@@ -1,1 +1,14 @@
-#
+# Terraform state files
+terraform.tfstate
+terraform.tfstate.backup
+.terraform/
+.terraform.lock.hcl
+
+# AWS credentials and private keys
+*.pem
+
+# Terraform variables with sensitive information
+*.tfvars
+
+# Go Binary
+go-server
