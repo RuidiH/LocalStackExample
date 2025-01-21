@@ -88,3 +88,8 @@ When there's only a single instance, manually sending over binary using CLI is m
 init-script.sh needs to be in LF instead of CRLF.
 
 For cross-compile issue, see [here](https://stackoverflow.com/questions/20829155/how-to-cross-compile-from-windows-to-linux).
+
+### Special Thanks:
+
+[KC](https://github.com/K1C8)
+[DayDreumer](https://github.com/DayDreumer)
