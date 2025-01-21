@@ -1,5 +1,8 @@
 ## Setup
 
+#### 0. Clone this repo to a folder on your local machine
+
+
 #### 1. Prepare [AWS key pair](https://docs.aws.amazon.com/IAM/latest/UserGuide/access-key-self-managed.html)
 You will need to know your access key and secret key.
 
@@ -28,6 +31,10 @@ Similarly, you should see something like the following:
 #### 5. Install [Postman](https://www.postman.com/downloads/)    
 Also check out the official documentation on how do send GET and POST request [here](https://learning.postman.com/docs/getting-started/first-steps/sending-the-first-request/)
 
+#### 6. Install [Golang](https://go.dev/) if you have not already done so.
+
+##### Note
+I recommend adding terraform and aws cli to [PATH](https://stackoverflow.com/questions/44272416/how-to-add-a-folder-to-path-environment-variable-in-windows-10-with-screensho) if you have not done so.
 
 ## Execution
 
@@ -57,7 +64,7 @@ Also check out the official documentation on how do send GET and POST request [h
 Use curl or Postman to send requests
 
     curl -X POST -H "Content-Type: application/json" -d '{"id": 1, "score": 100}' http://<EC2.IP.ADDRESS.HERE>:8081/item
-    curl -X GET http://<EC2.IP.ADDRESS.HERE>/item/1
+    curl -X GET http://<EC2.IP.ADDRESS.HERE>:8081/item/1
 
 #### 5. To apply any changes:
 If you changed server code
@@ -79,3 +86,5 @@ When there's only a single instance, manually sending over binary using CLI is m
 #### Notes:
 
 init-script.sh needs to be in LF instead of CRLF.
+
+For cross-compile issue, see [here](https://stackoverflow.com/questions/20829155/how-to-cross-compile-from-windows-to-linux).

@@ -113,7 +113,7 @@ resource "aws_iam_instance_profile" "ec2_instance_profile" {
 resource "aws_instance" "go_server" {
   ami                  = "ami-093a4ad9a8cc370f4" # Replace with a valid Amazon Linux 2 AMI ID for your region
   instance_type        = "t2.micro"              # Free-tier eligible instance type
-  key_name             = aws_key_pair.go_server_key.key_name
+  # key_name             = aws_key_pair.go_server_key.key_name
   iam_instance_profile = aws_iam_instance_profile.ec2_instance_profile.name
   security_groups = [
     aws_security_group.allow_http_ssh.name
@@ -137,10 +137,10 @@ resource "aws_instance" "go_server" {
   }
 }
 
-resource "aws_key_pair" "go_server_key" {
-  key_name   = "go-server-key"
-  public_key = file("./example-key.pub")
-}
+# resource "aws_key_pair" "go_server_key" {
+#   key_name   = "go-server-key"
+#   public_key = file("./example-key.pub")
+# }
 
 # Create an S3 bucket
 resource "aws_s3_bucket" "go_server_bucket" {
