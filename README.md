@@ -1,10 +1,10 @@
 ## Setup
 
-#### 1. Prepare [AWS key pair](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/create-key-pairs.html)
+#### 1. Prepare [AWS key pair](https://docs.aws.amazon.com/IAM/latest/UserGuide/access-key-self-managed.html)
 You will need to know your access key and secret key.
 
 #### 2. Install [AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html)
-You should see the following in your terminal:
+You should see the something similar to the following in your terminal:
 
     $ aws --version
     aws-cli/1.36.36 Python/3.11.8 Windows/10 botocore/1.35.95aws --version
