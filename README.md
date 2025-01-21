@@ -61,7 +61,7 @@ I recommend adding terraform and aws cli to [PATH](https://stackoverflow.com/que
 
 
 #### 4. To test requests:
-Use curl or Postman to send requests
+Use curl or [Postman](https://learning.postman.com/docs/getting-started/first-steps/sending-the-first-request/) to send requests
 
     curl -X POST -H "Content-Type: application/json" -d '{"id": 1, "score": 100}' http://<EC2.IP.ADDRESS.HERE>:8081/item
     curl -X GET http://<EC2.IP.ADDRESS.HERE>:8081/item/1
