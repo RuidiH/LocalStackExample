@@ -1,5 +1,8 @@
 ## Setup
 
+#### Note
+If you are in Cloud9 environment, you will only need to install terraform by following [this guide](https://aws-quickstart.github.io/workshop-terraform-modules/40_setup_cloud9_ide/42_install_terraform_c9.html) during setup.
+
 #### 0. Clone this repo to a folder on your local machine
 
 
@@ -73,7 +76,7 @@ If you changed server code
 
 And go back to step 1.
 
-Else if changed Infrastructure
+Else if only changed infrastructure
 
     terraform apply
 

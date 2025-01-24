@@ -1,6 +1,6 @@
 provider "aws" {
-  region  = "us-west-2"
-  # profile = "terraform"
+  region = "us-west-2"
+  # profile = "terraform" # Uncomment this line if you are on windows.
 
   # endpoints {
   #   dynamodb = "http://localhost:4566"  # for localstack
@@ -15,22 +15,25 @@ resource "aws_security_group" "allow_http_ssh" {
   name        = "allow_http_ssh"
   description = "Allow HTTP access and SSH from my machine"
 
+  # Inbound rule for personal PC from port 8080 to 8081
   ingress {
     description = "Allow HTTP from my machine"
     from_port   = 8080
     to_port     = 8081
     protocol    = "tcp"
-    cidr_blocks = ["${var.allowed_ip}/32"] # Replace <YOUR_IP> with your machine's IP
+    cidr_blocks = ["${var.allowed_ip}/32"]
   }
 
+  # Inbound rule for personal PC SSH access
   ingress {
     description = "Allow SSH from my machine"
     from_port   = 22
     to_port     = 22
     protocol    = "tcp"
-    cidr_blocks = ["${var.allowed_ip}/32"] # Replace <YOUR_IP> with your machine's public IP
+    cidr_blocks = ["${var.allowed_ip}/32"]
   }
 
+  # Outbound rule
   egress {
     description = "Allow all outbound traffic"
     from_port   = 0
@@ -46,7 +49,7 @@ resource "aws_dynamodb_table" "demo_table" {
 
   attribute {
     name = "ID"
-    type = "N"
+    type = "N"  # Numberic (Integer) Type
   }
 
   billing_mode = "PAY_PER_REQUEST"
@@ -111,8 +114,8 @@ resource "aws_dynamodb_table" "demo_table" {
 # }
 
 resource "aws_instance" "go_server" {
-  ami                  = "ami-093a4ad9a8cc370f4" # Replace with a valid Amazon Linux 2 AMI ID for your region
-  instance_type        = "t2.micro"              # Free-tier eligible instance type
+  ami           = "ami-093a4ad9a8cc370f4" # Replace with any other ami of your choice
+  instance_type = "t2.micro"              # Free-tier eligible instance type
   # key_name             = aws_key_pair.go_server_key.key_name
   # iam_instance_profile = aws_iam_instance_profile.ec2_instance_profile.name
   iam_instance_profile = "LabInstanceProfile"
@@ -125,6 +128,7 @@ resource "aws_instance" "go_server" {
     aws_security_group.allow_http_ssh
   ]
 
+  # Move go binary and a shell script from S3 bucket to your server
   user_data = <<-EOF
               #!/bin/bash
               BUCKET=${aws_s3_bucket.go_server_bucket.bucket}
@@ -138,6 +142,7 @@ resource "aws_instance" "go_server" {
   }
 }
 
+# For SSH
 # resource "aws_key_pair" "go_server_key" {
 #   key_name   = "go-server-key"
 #   public_key = file("./example-key.pub")
